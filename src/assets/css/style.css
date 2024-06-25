@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+}
+
+body {
+    background-color: #e5e5e5;
+    touch-action: manipulation;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0 !important;
+    padding-bottom: 30px;
+}
+
+.poke-history input {
+    border: 1px solid #9e9e9e !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+input:focus {
+    box-shadow: none !important;
+}
+
+label {
+    display: block !important;
+}
+
+.poke-history .search-wrapper::after {
+    content: "\f002"; 
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.poke-history .form-group.search-wrapper input{
+    padding-left: 40px !important;
+}
+
+table a {
+    color: #000000de !important;
+}
+
+.header {
+    min-height: 80px;
+    margin-bottom: 60px;
+}
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.gap {
+    gap: 1rem;
+}
+
+.poke-btn {
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.login form,
+.register form,
+.profile form,
+.poke .poke-history{
+    background-color: #fff;
+    padding: 30px;
+    width: 700px;
+}
+
+.users {
+    background-color: #fff;
+    padding: 30px;
+}
+
+.poke-btn::after {
+    content: "\f054"; 
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+ul.dropdown-content {
+    top: 64px !important;
+    width: 250px !important;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.loader {
+    width: 35px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background:
+        linear-gradient(0deg, rgb(0 0 0 / 50%) 30%, #0000 0 70%, rgb(0 0 0 / 100%) 0) 50% / 8% 100%,
+        linear-gradient(90deg, rgb(0 0 0 / 25%) 30%, #0000 0 70%, rgb(0 0 0 / 75%) 0) 50% / 100% 8%;
+    background-repeat: no-repeat;
+    animation: l23 1s infinite steps(12);
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    transform: rotate(30deg);
+}
+
+.loader::after {
+    opacity: 0.83;
+    transform: rotate(60deg);
+}
+
+ul.pagination.center-align {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+}
+ul.pagination.center-align li{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: relative;
+}
+
+ul.pagination.center-align li a {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ul.pagination.center-align li.active {
+    background: #2196F3 !important;
+}
+ul.pagination.center-align li.waves-effect {
+    background: #e5e5e5 !important;
+}
+
+.pagination li {
+    display: block;
+}
+
+.search input {
+    border: 1px solid #9e9e9e !important;
+    padding-left: 40px !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search .search-wrapper::after {
+    content: "\f002"; 
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.datepicker-wrapper {
+    position: relative;
+}
+
+.datepicker-wrapper input{
+    cursor: pointer !important;
+}
+
+.datepicker-wrapper::after {
+    content: "\f073";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.datepicker-wrapper input {
+    padding-left: 40px !important;
+
+}
+
+.users-wrapper {
+    overflow-x: auto;
+}
+
+.search-form {
+    width: 100%;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.search-form  input {
+    width: 100%;
+}
+
+input.select-dropdown.dropdown-trigger {
+    padding: 0 !important;
+    border: none !important;
+}
+
+button.toast-close-button {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    h3 {
+        font-size: 30px;
+    }
+    .login form,
+    .register form{
+        width: 100%;
+    }
+    .btn {
+        width: 100%;
+    }
+    .poke-history {
+        width: 100% !important;
+    }
+    .container-fluid.login .btn {
+        margin-bottom: 15px;
+    }
+    .container-fluid.login .btn:last-child {
+        margin-bottom: 0;
+    }
+    .search-form {
+        flex-direction: column;
+    }
+    .search-form  .form-group.search-wrapper {
+        flex: 1;
+    }
+
+}
+
+@keyframes l23 {
+    100% {
+        transform: rotate(1turnz;
+    }
+}

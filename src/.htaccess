@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Redirect requests to the appropriate PHP file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^login$ login.php [L]
+RewriteRule ^logout$ logout.php [L]
+RewriteRule ^profile$ profile.php [L]
+RewriteRule ^poke_history$ poke_history.php [L]
+RewriteRule ^register$ register.php [L]
+RewriteRule ^index$ index.php [L]
