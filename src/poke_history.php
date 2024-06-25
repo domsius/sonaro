@@ -1,9 +1,9 @@
 <?php
-require 'vendor/autoload.php';
-require 'db/db.php';
-require './classes/UserSession.php';
-require './classes/PokeHistory.php';
-require 'classes/View.php';
+require_once 'vendor/autoload.php';
+require_once 'db/db.php';
+require_once './classes/UserSession.php';
+require_once './classes/PokeHistory.php';
+require_once 'classes/View.php';
 
 session_start();
 

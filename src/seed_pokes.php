@@ -1,7 +1,7 @@
 <?php
-require 'vendor/autoload.php';
-require 'db/db.php';
-require './classes/PokeSeeder.php';
+require_once 'vendor/autoload.php';
+require_once 'db/db.php';
+require_once './classes/PokeSeeder.php';
 
 $db = getDatabaseConnection();
 $pokesSeeder = new PokeSeeder($db);

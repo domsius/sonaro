@@ -1,8 +1,8 @@
 <?php
-require 'vendor/autoload.php';
-require 'db/db.php';
-require './classes/UserSession.php';
-require './classes/UserLoader.php';
+require_once 'vendor/autoload.php';
+require_once 'db/db.php';
+require_once './classes/UserSession.php';
+require_once './classes/UserLoader.php';
 
 session_start();
 

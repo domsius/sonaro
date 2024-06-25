@@ -1,8 +1,8 @@
 <?php
-require 'db/db.php';
-require 'classes/UserSession.php';
-require 'classes/UserLoader.php';
-require 'classes/View.php';
+require_once 'db/db.php';
+require_once 'classes/UserSession.php';
+require_once 'classes/UserLoader.php';
+require_once 'classes/View.php';
 
 $title = "Vartotojai";
 include './includes/header.php';
