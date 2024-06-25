@@ -1,6 +1,6 @@
 <?php
 require 'vendor/autoload.php';
-require './db.php';
+require 'db/db.php';
 require './classes/UserSession.php';
 require './classes/NotificationLoader.php';
 

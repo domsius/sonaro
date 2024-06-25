@@ -10,33 +10,42 @@ class PokeHistory {
         $limit = 10;
         $offset = ($page - 1) * $limit;
 
-        $query = "SELECT ph.poke_date, u1.username AS from_user, u2.username AS to_user
+        $query = "SELECT ph.poke_date, CONCAT(u1.firstname, ' ', u1.lastname) AS from_user, CONCAT(u2.firstname, ' ', u2.lastname) AS to_user
                   FROM poke_history ph
                   JOIN users u1 ON ph.from_user_id = u1.id
                   JOIN users u2 ON ph.to_user_id = u2.id
                   WHERE ph.from_user_id = ? OR ph.to_user_id = ?";
 
+        $params = [$userId, $userId];
+        $types = 'ii';
+
         if ($search) {
-            $query .= " AND (u1.username LIKE ? OR u2.username LIKE ?)";
+            $query .= " AND (CONCAT(u1.firstname, ' ', u1.lastname) LIKE ? OR CONCAT(u2.firstname, ' ', u2.lastname) LIKE ?)";
+            $search = "%$search%";
+            $params[] = $search;
+            $params[] = $search;
+            $types .= 'ss';
         }
 
         if ($dateFrom) {
             $query .= " AND ph.poke_date >= ?";
+            $params[] = $dateFrom;
+            $types .= 's';
         }
 
         if ($dateTo) {
             $query .= " AND ph.poke_date <= ?";
+            $params[] = $dateTo;
+            $types .= 's';
         }
 
         $query .= " ORDER BY $sortBy $sortOrder LIMIT ? OFFSET ?";
+        $params[] = $limit;
+        $params[] = $offset;
+        $types .= 'ii';
 
         $stmt = $this->db->prepare($query);
-        if ($search) {
-            $search = "%$search%";
-            $stmt->bind_param("iissssii", $userId, $userId, $search, $search, $dateFrom, $dateTo, $limit, $offset);
-        } else {
-            $stmt->bind_param("iissii", $userId, $userId, $dateFrom, $dateTo, $limit, $offset);
-        }
+        $stmt->bind_param($types, ...$params);
 
         $stmt->execute();
         $result = $stmt->get_result();
@@ -53,25 +62,31 @@ class PokeHistory {
                   JOIN users u2 ON ph.to_user_id = u2.id
                   WHERE ph.from_user_id = ? OR ph.to_user_id = ?";
 
+        $params = [$userId, $userId];
+        $types = 'ii';
+
         if ($search) {
-            $query .= " AND (u1.username LIKE ? OR u2.username LIKE ?)";
+            $query .= " AND (CONCAT(u1.firstname, ' ', u1.lastname) LIKE ? OR CONCAT(u2.firstname, ' ', u2.lastname) LIKE ?)";
+            $search = "%$search%";
+            $params[] = $search;
+            $params[] = $search;
+            $types .= 'ss';
         }
 
         if ($dateFrom) {
             $query .= " AND ph.poke_date >= ?";
+            $params[] = $dateFrom;
+            $types .= 's';
         }
 
         if ($dateTo) {
             $query .= " AND ph.poke_date <= ?";
+            $params[] = $dateTo;
+            $types .= 's';
         }
 
         $stmt = $this->db->prepare($query);
-        if ($search) {
-            $search = "%$search%";
-            $stmt->bind_param("iissss", $userId, $userId, $search, $search, $dateFrom, $dateTo);
-        } else {
-            $stmt->bind_param("iiss", $userId, $userId, $dateFrom, $dateTo);
-        }
+        $stmt->bind_param($types, ...$params);
 
         $stmt->execute();
         $result = $stmt->get_result();
